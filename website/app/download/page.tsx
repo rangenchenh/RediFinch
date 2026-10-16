@@ -14,9 +14,9 @@ export const metadata = {
 };
 
 const releaseUrl =
-  "https://github.com/invalidandnull/RediFinch/releases/tag/v0.1.10";
+  "https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10";
 const installerUrl =
-  "https://github.com/invalidandnull/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe";
+  "https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe";
 
 export default function DownloadPage() {
   return (

@@ -2,11 +2,11 @@
 
 **Voice input for the apps you already use.** Hold a shortcut, speak, and insert text into the focused Windows app. RediFinch supports local or cloud dictation, AI polishing, translation, and an early voice agent for approved browser and computer actions.
 
-[Download for Windows](https://github.com/invalidandnull/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/RediFinch/issues)
+[Download for Windows](https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/rangenchenh/RediFinch/issues)
 
 ## Get started
 
-1. Download `RediFinch-0.1.10-x64.exe` from the [v0.1.10 release](https://github.com/invalidandnull/RediFinch/releases/tag/v0.1.10) and run it on **Windows 10 or 11 (x64)**. This preview installer is not code signed.
+1. Download `RediFinch-0.1.10-x64.exe` from the [v0.1.10 release](https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10) and run it on **Windows 10 or 11 (x64)**. This preview installer is not code signed.
 2. In **Settings → Engine**, select **Local** and download the SenseVoice model, or select a cloud speech provider and enter your own API key.
 3. Focus a text field in another app. Hold `Ctrl+Win`, speak, then release to insert the transcript.
 4. To polish or translate what you say, configure a provider in **Settings → Output** and select an output mode. You can assign different push-to-talk shortcuts to different modes.
@@ -41,7 +41,7 @@ Enable only the tools you want the agent to use. If **Local PowerShell** is enab
 You need **Windows 10/11 x64**, **Node.js 22 or newer**, npm, and Git.
 
 ```powershell
-git clone https://github.com/invalidandnull/RediFinch.git
+git clone https://github.com/rangenchenh/RediFinch.git
 cd RediFinch
 npm ci
 npm run dev
@@ -94,7 +94,7 @@ website/        Standalone marketing site
 
 ## Help and contributing
 
-If something fails, [open an issue](https://github.com/invalidandnull/RediFinch/issues) with your Windows version, RediFinch version, steps to reproduce, and the provider or mode involved. Remove API keys and private content before sharing logs or screenshots. Focused issues and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
+If something fails, [open an issue](https://github.com/rangenchenh/RediFinch/issues) with your Windows version, RediFinch version, steps to reproduce, and the provider or mode involved. Remove API keys and private content before sharing logs or screenshots. Focused issues and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
