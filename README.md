@@ -1,8 +1,10 @@
-<a href="https://redifinch.com/"><img src=".github/assets/readme-cover.svg" alt="RediFinch — Your words, without the typing" width="100%" /></a>
+<a href="https://redifinch.com/"><img src=".github/assets/readme-cover.png" alt="Abstract blue glass sound wave for RediFinch" width="100%" /></a>
+
+<h1 align="center">RediFinch</h1>
 
 <p align="center">
-  <strong>Voice input for the apps you already use.</strong><br />
-  Hold a shortcut, speak naturally, and put clear text into the focused Windows app.
+  <strong>Your words, without the typing.</strong><br />
+  Hold a shortcut, speak naturally, and put clear text into the app you are using.
 </p>
 
 <p align="center">
