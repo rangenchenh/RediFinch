@@ -2,4 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://redifinch.com/</loc></url>
   <url><loc>https://redifinch.com/download/</loc></url>
+  <url><loc>https://redifinch.com/guides/</loc></url>
+  <url><loc>https://redifinch.com/guides/voice-dictation-windows/</loc></url>
+  <url><loc>https://redifinch.com/guides/offline-vs-cloud-dictation/</loc></url>
+  <url><loc>https://redifinch.com/guides/voice-translation-windows/</loc></url>
+  <url><loc>https://redifinch.com/compare/wispr-flow/</loc></url>
 </urlset>

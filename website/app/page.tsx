@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, Download, Github } from "lucide-react";
 import LiquidOrb from "./liquid-orb";
+import { JsonLd } from "./seo";
 
 const questions = [
   { title: "Does it work in my apps?", answer: "RediFinch places dictated text in the field where your cursor is. Use it in messages, documents, browsers, and other Windows apps." },
@@ -17,12 +18,13 @@ function VoiceMark() {
 
 export default function Home() {
   return <main id="top" className="site">
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "SoftwareApplication", "@id": "https://redifinch.com/#app", name: "RediFinch", url: "https://redifinch.com/", description: "Open-source voice dictation for Windows with optional AI polishing, translation, and an early voice agent preview.", applicationCategory: "UtilitiesApplication", operatingSystem: "Windows 10, Windows 11", downloadUrl: "https://redifinch.com/download/", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@id": "https://redifinch.com/#organization" } }} />
     <header className="site-header">
       <Wordmark />
       <nav aria-label="Main navigation">
         <a href="#how-it-works">How it works</a>
         <a href="#more-than-dictation">What it does</a>
-        <a href="#questions">Questions</a>
+        <a href="/guides/">Guides</a>
       </nav>
       <div className="header-actions">
         <a className="header-github" href="https://github.com/rangenchenh/RediFinch" aria-label="RediFinch on GitHub" title="View RediFinch on GitHub" target="_blank" rel="noopener noreferrer">
@@ -87,12 +89,14 @@ export default function Home() {
       <div className="choice-copy"><p>Choose the speech and AI providers that fit you. Set your own shortcuts for dictation, translation, and assistant mode. Keep control over which computer tools the assistant can use.</p><a className="text-link" href="/download/">Explore the Windows preview <ArrowRight size={17}/></a></div>
     </section>
 
+    <section className="home-guides" aria-labelledby="home-guides-title"><div className="home-guides-heading"><div><p className="section-label">From the field guide</p><h2 id="home-guides-title">Make more of your voice.</h2></div><a className="text-link" href="/guides/">Explore all guides <ArrowRight size={17}/></a></div><div className="home-guide-links"><a href="/guides/voice-dictation-windows/"><span>01 / GETTING STARTED</span><strong>Dictate in any Windows app</strong><ArrowUpRight size={20}/></a><a href="/guides/offline-vs-cloud-dictation/"><span>02 / CHOOSING A SETUP</span><strong>Local or cloud speech?</strong><ArrowUpRight size={20}/></a><a href="/guides/voice-translation-windows/"><span>03 / VOICE TRANSLATION</span><strong>Translate with a shortcut</strong><ArrowUpRight size={20}/></a></div></section>
+
     <section className="questions" id="questions">
       <div><p className="section-label">Good to know</p><h2>Questions,<br/>answered.</h2></div>
       <div className="question-list">{questions.map(({title,answer}) => <details key={title}><summary>{title}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
     </section>
 
     <section className="final-cta"><LiquidOrb variant="footer"/><div className="final-content"><h2>Give your hands<br/>a break.</h2><p>Your next thought is ready when you are.</p><a className="button button-primary" href="/download/"><Download size={18}/> Get RediFinch for Windows</a></div></section>
-    <footer className="footer"><Wordmark/><span>Voice, made useful.</span><a href="#top">Back to top ↑</a><small>© 2026 RediFinch</small></footer>
+    <footer className="footer"><Wordmark/><span>Voice, made useful.</span><a href="/guides/">Guides</a><a href="/compare/wispr-flow/">Compare</a><a href="#top">Back to top ↑</a><small>© 2026 RediFinch</small></footer>
   </main>;
 }

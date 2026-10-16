@@ -6,18 +6,13 @@ import {
   Monitor,
   ShieldCheck,
 } from "lucide-react";
+import { pageMetadata } from "../seo";
 
-export const metadata = {
-  title: "Windows preview — RediFinch",
-  description:
-    "Get the current Windows preview of RediFinch, the voice-first desktop app.",
-  alternates: {
-    canonical: "/download/",
-  },
-  openGraph: {
-    url: "https://redifinch.com/download/",
-  },
-};
+export const metadata = pageMetadata(
+  "Download the Windows preview",
+  "Download RediFinch for Windows 10 or 11 and try voice dictation, polishing, translation, and the early assistant preview.",
+  "/download/",
+);
 
 const releaseUrl =
   "https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10";
