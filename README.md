@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rangenchenh/RediFinch/releases"><img src="https://img.shields.io/github/v/release/rangenchenh/RediFinch?label=release&amp;color=458ff5" alt="Latest release" /></a>
+  <a href="https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10"><img src="https://img.shields.io/badge/preview-v0.1.10-458ff5" alt="Preview v0.1.10" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-458ff5" alt="MIT license" /></a>
   <img src="https://img.shields.io/badge/platform-Windows%2010%2F11-458ff5" alt="Windows 10 and 11" />
 </p>
