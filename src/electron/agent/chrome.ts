@@ -48,7 +48,7 @@ export class ChromeTools {
   }
 
   private async openConnection(): Promise<void> {
-    const client = new Client({ name: 'vokluna-agent', version: app.getVersion() });
+    const client = new Client({ name: 'readyfinch-agent', version: app.getVersion() });
     const transport = new StdioClientTransport({
       command: process.execPath,
       args: [mcpEntrypoint(), '--autoConnect', '--no-usageStatistics'],

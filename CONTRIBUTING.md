@@ -1,6 +1,6 @@
-# Contributing to Vokluna
+# Contributing to Ready Finch
 
-Thanks for helping improve Vokluna. Bug reports, documentation fixes, and focused pull requests are welcome.
+Thanks for helping improve Ready Finch. Bug reports, documentation fixes, and focused pull requests are welcome.
 
 ## Before you start
 

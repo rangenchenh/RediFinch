@@ -115,7 +115,7 @@ export default function AssistantPage() {
         <div className="mx-auto flex w-full max-w-[800px] flex-1 flex-col overflow-y-auto px-8 py-8">
           <div className="mb-8">
             <div className="mb-2 text-[11px] font-semibold tracking-[0.12em] text-[#888] uppercase">Browser assistant</div>
-            <h1 className="text-[29px] font-semibold tracking-[-0.04em]">Tell Vokluna what to do</h1>
+            <h1 className="text-[29px] font-semibold tracking-[-0.04em]">Tell Ready Finch what to do</h1>
             <p className="mt-2 max-w-[620px] text-[13px] leading-6 text-[#777] dark:text-[#aaa]">Speak or type a task, review the transcript, then let the assistant work in your existing Chrome session or propose a local computer command. You can see every action and stop it at any time.</p>
           </div>
 

@@ -1,6 +1,6 @@
-# Vokluna marketing site
+# Ready Finch marketing site
 
-This is a standalone Next.js 16 static site for the Vokluna Windows desktop project in the parent folder.
+This is a standalone Next.js 16 static site for the Ready Finch Windows desktop project in the parent folder.
 
 ## Run locally
 
@@ -16,7 +16,7 @@ Open http://localhost:3010.
 
 `npm run build` exports static files to `out/`. This can be deployed to either Vercel or Cloudflare Pages without a server runtime. For Vercel, set root directory to `website`, build command to `npm run build`, and output directory to `out`. For Cloudflare Pages, use the same root, build command, and output directory.
 
-The desktop installer is distributed through [GitHub Releases](https://github.com/invalidandnull/Vokluna/releases/latest). The static site links to the current release asset rather than bundling the binary into the repository or site export.
+The desktop installer is distributed through [GitHub Releases](https://github.com/invalidandnull/ReadyFinch/releases). The static site links to the public release page rather than bundling a binary into the repository or site export.
 
 ## Design references
 

@@ -8,23 +8,28 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Windows preview — Vokluna",
+  title: "Windows preview — Ready Finch",
   description:
-    "Get the current Windows preview of Vokluna, the voice-first desktop app.",
+    "Get the current Windows preview of Ready Finch, the voice-first desktop app.",
 };
+
+const releaseUrl =
+  "https://github.com/invalidandnull/ReadyFinch/releases/tag/v0.1.9";
+const installerUrl =
+  "https://github.com/invalidandnull/ReadyFinch/releases/download/v0.1.9/ReadyFinch-0.1.9-x64.exe";
 
 export default function DownloadPage() {
   return (
     <main className="download-page">
       <div className="download-shell">
         <a href="/" className="download-back">
-          <ArrowLeft size={17} /> Back to Vokluna
+          <ArrowLeft size={17} /> Back to Ready Finch
         </a>
         <div className="download-card">
           <div className="download-icon">
             <Download size={29} />
           </div>
-          <div className="section-kicker">WINDOWS PREVIEW · V0.1.8</div>
+          <div className="section-kicker">WINDOWS PREVIEW · V0.1.9</div>
           <h1>
             Bring your voice
             <br />
@@ -46,18 +51,18 @@ export default function DownloadPage() {
           </div>
           <div className="download-local">
             <span>LATEST WINDOWS BUILD</span>
-            <code>Vokluna-0.1.8-x64.exe</code>
+            <code>ReadyFinch-0.1.9-x64.exe</code>
             <small>
               Windows 10 / 11 · x64 · 120 MB
             </small>
           </div>
-          <a className="button button-dark" href="https://github.com/invalidandnull/Vokluna/releases/download/v0.1.8/Vokluna-0.1.8-x64.exe">
-            Download Vokluna for Windows <Download size={17} />
+          <a className="button button-dark" href={installerUrl}>
+            Download Ready Finch for Windows <Download size={17} />
           </a>
         </div>
         <div className="download-foot">
           <Check size={16} /> Open source on GitHub.
-          <a href="https://github.com/invalidandnull/Vokluna/releases/tag/v0.1.8">
+          <a href={releaseUrl}>
             View release notes <ArrowRight size={14} />
           </a>
         </div>

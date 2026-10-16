@@ -323,14 +323,14 @@ async function bootstrap(): Promise<void> {
       title: 'Limited functionality',
       message: 'Text insertion is unavailable',
       detail:
-        `Vokluna could not load the Windows input APIs, so it cannot type into other apps.\n\n` +
+        `Ready Finch could not load the Windows input APIs, so it cannot type into other apps.\n\n` +
         `Reason: ${win32InitError() ?? 'unknown'}\n\n` +
         `Transcription still works and text stays copyable.`,
     });
   }
 
   void pushStatus();
-  log.info('Vokluna ready');
+  log.info('Ready Finch ready');
 
   handleStartupArgs();
 }
@@ -338,7 +338,7 @@ async function bootstrap(): Promise<void> {
 /** Carry existing settings and downloaded models across the product-name change. */
 function migrateLegacyUserData(): void {
   const current = app.getPath('userData');
-  for (const previousName of ['Saykin', 'vibeType']) {
+  for (const previousName of ['Vokluna', 'Saykin', 'vibeType']) {
     const previous = path.join(app.getPath('appData'), previousName);
     if (path.resolve(previous).toLowerCase() === path.resolve(current).toLowerCase()) continue;
     if (!fs.existsSync(previous)) continue;
@@ -548,7 +548,7 @@ function buildTray(): void {
     tray.setContextMenu(
       Menu.buildFromTemplate([
         {
-          label: 'Open Vokluna',
+          label: 'Open Ready Finch',
           click: () => {
             mainWindow?.show();
             mainWindow?.focus();
@@ -639,7 +639,7 @@ function buildTray(): void {
   };
 
   refresh();
-  tray.setToolTip('Vokluna — hold to dictate');
+  tray.setToolTip('Ready Finch — hold to dictate');
   tray.on('click', () => {
     if (mainWindow?.isVisible()) mainWindow.hide();
     else {
@@ -872,7 +872,7 @@ app.whenReady().then(async () => {
   } catch (err) {
     log.error('bootstrap failed:', err);
     dialog.showErrorBox(
-      'Vokluna failed to start',
+      'Ready Finch failed to start',
       `${err instanceof Error ? err.message : String(err)}\n\nLogs: ${getLogPath()}`,
     );
   }

@@ -1,9 +1,9 @@
 {
-  "name": "vokluna",
-  "productName": "Vokluna",
-  "version": "0.1.8",
+  "name": "readyfinch",
+  "productName": "Ready Finch",
+  "version": "0.1.9",
   "private": true,
-  "description": "Real-time voice-to-text dictation for Windows. Hold a hotkey, speak, and the text is typed into whatever app has focus.",
+  "description": "Voice dictation, translation, and a browser-assisted desktop agent for Windows.",
   "main": "dist-electron/main.js",
   "scripts": {
     "dev": "node scripts/dev.mjs",

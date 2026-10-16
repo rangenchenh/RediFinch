@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 
 /**
- * The Vokluna mark: five rounded bars, tallest in the centre.
+ * The Ready Finch mark: five rounded bars, tallest in the centre.
  *
  * The geometry is transcribed from `scripts/generate-icon.mjs` rather than
  * re-drawn, so the in-app mark and the installed icon are the same artwork. If
@@ -29,7 +29,7 @@ export function BrandMark({ className }: { className?: string }) {
       viewBox={`0 0 ${BOX} ${BOX}`}
       className={cn('size-4', className)}
       role="img"
-      aria-label="Vokluna"
+      aria-label="Ready Finch"
       fill="currentColor"
     >
       {WEIGHTS.map((weight, i) => {

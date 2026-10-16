@@ -1,12 +1,12 @@
-# Vokluna
+# Ready Finch
 
-**Voice input for the apps you already use.** Hold a shortcut, speak naturally, and Vokluna inserts the result into the focused Windows app. Dictate locally or choose a cloud speech provider; polish or translate the result when you need to.
+**A voice agent for the apps you already use.** Hold a shortcut, speak naturally, and Ready Finch inserts the result into the focused Windows app. Dictate locally or choose a cloud speech provider; polish or translate the result when you need to.
 
-[Download for Windows](https://github.com/invalidandnull/Vokluna/releases/latest) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/Vokluna/issues)
+[Download for Windows](https://github.com/invalidandnull/ReadyFinch/releases/latest) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/ReadyFinch/issues)
 
 ## Install
 
-Download the latest `Vokluna-*-x64.exe` from [GitHub Releases](https://github.com/invalidandnull/Vokluna/releases/latest) and run the installer. The current build supports **Windows 10/11 on x64**. It is a preview build and is not code signed.
+Download `ReadyFinch-0.1.9-x64.exe` from [GitHub Releases](https://github.com/invalidandnull/ReadyFinch/releases/latest) and run the installer. Ready Finch supports **Windows 10/11 on x64**. This preview build is not code signed.
 
 On first launch, choose an on-device model or enter your own provider key in **Settings**. Local speech recognition downloads its model on demand; cloud recognition needs a key for the selected service.
 
@@ -21,7 +21,7 @@ On first launch, choose an on-device model or enter your own provider key in **S
 | Mode shortcuts | Assign a separate push-to-talk shortcut to each output mode. |
 | Voice agent preview | Configure a separate agent model and tool permissions to inspect or operate an existing Chrome session, open URLs, and run approved local commands. |
 
-The local speech engine can work without a network connection after its models are installed. Cloud speech, polish, translation, and agent features send the relevant audio or text to the provider you configure. Vokluna does not bundle provider API keys.
+The local speech engine can work without a network connection after its models are installed. Cloud speech, polish, translation, and agent features send the relevant audio or text to the provider you configure. Ready Finch does not bundle provider API keys.
 
 ## Quick start
 
@@ -41,8 +41,8 @@ The **Agent** mode uses its own model configuration under **Settings → Agent**
 - Git
 
 ```powershell
-git clone https://github.com/invalidandnull/Vokluna.git
-cd Vokluna
+git clone https://github.com/invalidandnull/ReadyFinch.git
+cd ReadyFinch
 npm ci
 npm run dev
 ```
@@ -85,7 +85,7 @@ website/        Standalone marketing site
 
 - The native hotkey and text insertion layers are Windows specific.
 - Local SenseVoice transcription is segment based; Deepgram supports interim streaming results.
-- Windows blocks input injection from a normal process into an elevated app. Run Vokluna at the same privilege level as the target app.
+- Windows blocks input injection from a normal process into an elevated app. Run Ready Finch at the same privilege level as the target app.
 - The voice agent currently operates an existing Chrome session and approved local commands. It does not yet have long-term memory or a general desktop control layer.
 
 ## Contributing
@@ -94,4 +94,4 @@ Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for
 
 ## License
 
-Vokluna is released under the [MIT License](LICENSE). Third-party packages and model files retain their own licenses; see their upstream projects and [website/THIRD_PARTY_NOTICES.md](website/THIRD_PARTY_NOTICES.md) for the site's design references.
+Ready Finch is released under the [MIT License](LICENSE). Third-party packages and model files retain their own licenses; see their upstream projects and [website/THIRD_PARTY_NOTICES.md](website/THIRD_PARTY_NOTICES.md) for the site's design references.
