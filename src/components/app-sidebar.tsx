@@ -8,7 +8,7 @@ export function AppSidebar({ active, mode, engine }: { active: 'home' | 'setting
     <aside className="flex w-[190px] shrink-0 flex-col border-r border-[#e8e8e6] bg-[#f7f7f6] px-3 py-4 dark:border-white/10 dark:bg-[#171716]">
       <div className="drag-region mb-11 flex items-center gap-2.5 px-2.5">
         <div className="flex size-7 items-center justify-center rounded-[7px] bg-[#e9e9e7] text-[#121214] dark:bg-[#ededeb]"><BrandMark /></div>
-        <span className="text-[15px] font-semibold tracking-[-0.025em]">Ready Finch</span>
+        <span className="text-[15px] font-semibold tracking-[-0.025em]">RediFinch</span>
       </div>
       <div className="text-muted-foreground px-2.5 text-[10px] font-semibold tracking-[0.11em] uppercase">Workspace</div>
       <nav className="mt-2 space-y-0.5" aria-label="Primary navigation">

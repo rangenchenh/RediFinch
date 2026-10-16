@@ -1,6 +1,6 @@
-# Ready Finch marketing site
+# RediFinch marketing site
 
-This is a standalone Next.js 16 static site for the Ready Finch Windows desktop project in the parent folder.
+This is a standalone Next.js 16 static site for the RediFinch Windows desktop project in the parent folder.
 
 ## Run locally
 
@@ -16,7 +16,7 @@ Open http://localhost:3010.
 
 `npm run build` exports static files to `out/`. This can be deployed to either Vercel or Cloudflare Pages without a server runtime. For Vercel, set root directory to `website`, build command to `npm run build`, and output directory to `out`. For Cloudflare Pages, use the same root, build command, and output directory.
 
-The desktop installer is distributed through [GitHub Releases](https://github.com/invalidandnull/ReadyFinch/releases). The static site links to the public release page rather than bundling a binary into the repository or site export.
+The desktop installer is distributed through [GitHub Releases](https://github.com/invalidandnull/RediFinch/releases). The download page links directly to the [v0.1.10 Windows installer](https://github.com/invalidandnull/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe), while release notes remain available on the [v0.1.10 release page](https://github.com/invalidandnull/RediFinch/releases/tag/v0.1.10). The site does not bundle the binary into the repository or export.
 
 ## Design references
 

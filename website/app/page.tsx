@@ -2,13 +2,13 @@ import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
 import LiquidOrb from "./liquid-orb";
 
 const questions = [
-  { title: "Does it work in my apps?", answer: "Ready Finch places dictated text in the field where your cursor is. Use it in messages, documents, browsers, and other Windows apps." },
+  { title: "Does it work in my apps?", answer: "RediFinch places dictated text in the field where your cursor is. Use it in messages, documents, browsers, and other Windows apps." },
   { title: "Can I choose my own providers?", answer: "Yes. Choose supported speech, writing, and translation providers in settings, then connect with your own API keys. Custom compatible endpoints are available too." },
   { title: "What can the assistant do?", answer: "The assistant is an early preview. It has a separate model and a set of tools you control. Browser and computer actions require the permissions you configure." },
 ];
 
 function Wordmark() {
-  return <a className="wordmark" href="#top" aria-label="Ready Finch home">Ready Finch<span>.</span></a>;
+  return <a className="wordmark" href="#top" aria-label="RediFinch home">RediFinch<span>.</span></a>;
 }
 
 function VoiceMark() {
@@ -24,7 +24,7 @@ export default function Home() {
         <a href="#more-than-dictation">What it does</a>
         <a href="#questions">Questions</a>
       </nav>
-      <a className="header-cta" href="/download/">Get Ready Finch <ArrowUpRight size={16}/></a>
+      <a className="header-cta" href="/download/">Get RediFinch <ArrowUpRight size={16}/></a>
     </header>
 
     <section className="hero" aria-labelledby="hero-title">
@@ -32,7 +32,7 @@ export default function Home() {
       <div className="hero-copy">
         <p className="availability"><span className="availability-dot"/> Available for Windows</p>
         <h1 id="hero-title">Your words,<br/><span>without the typing.</span></h1>
-        <p className="hero-lead">Speak naturally. Ready Finch turns your thoughts into clear text, right where you need it.</p>
+        <p className="hero-lead">Speak naturally. RediFinch turns your thoughts into clear text, right where you need it.</p>
         <div className="hero-actions">
           <a className="button button-primary" href="/download/"><Download size={18}/> Get the Windows preview</a>
           <a className="text-link" href="#how-it-works">See how it works <ArrowRight size={17}/></a>
@@ -70,7 +70,7 @@ export default function Home() {
       <div className="statement-rings" aria-hidden="true"><i/><i/><i/></div>
     </section>
 
-    <section className="features" aria-label="Ready Finch capabilities">
+    <section className="features" aria-label="RediFinch capabilities">
       <div className="feature-row"><span className="feature-index">01</span><div><h3>Write at the speed of thought.</h3><p>Turn natural speech into clean text in the app you already have open.</p></div><span className="feature-symbol">↗</span></div>
       <div className="feature-row"><span className="feature-index">02</span><div><h3>Make the words feel right.</h3><p>Polish a quick thought into a clear message, with a writing model you choose.</p></div><span className="feature-symbol">↗</span></div>
       <div className="feature-row"><span className="feature-index">03</span><div><h3>Speak across languages.</h3><p>Switch into translation with a shortcut. Choose a translation service or an AI model.</p></div><span className="feature-symbol">↗</span></div>
@@ -87,7 +87,7 @@ export default function Home() {
       <div className="question-list">{questions.map(({title,answer}) => <details key={title}><summary>{title}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
     </section>
 
-    <section className="final-cta"><LiquidOrb variant="footer"/><div className="final-content"><h2>Give your hands<br/>a break.</h2><p>Your next thought is ready when you are.</p><a className="button button-primary" href="/download/"><Download size={18}/> Get Ready Finch for Windows</a></div></section>
-    <footer className="footer"><Wordmark/><span>Voice, made useful.</span><a href="#top">Back to top ↑</a><small>© 2026 Ready Finch</small></footer>
+    <section className="final-cta"><LiquidOrb variant="footer"/><div className="final-content"><h2>Give your hands<br/>a break.</h2><p>Your next thought is ready when you are.</p><a className="button button-primary" href="/download/"><Download size={18}/> Get RediFinch for Windows</a></div></section>
+    <footer className="footer"><Wordmark/><span>Voice, made useful.</span><a href="#top">Back to top ↑</a><small>© 2026 RediFinch</small></footer>
   </main>;
 }

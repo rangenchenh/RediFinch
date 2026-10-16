@@ -8,28 +8,28 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Windows preview — Ready Finch",
+  title: "Windows preview — RediFinch",
   description:
-    "Get the current Windows preview of Ready Finch, the voice-first desktop app.",
+    "Get the current Windows preview of RediFinch, the voice-first desktop app.",
 };
 
 const releaseUrl =
-  "https://github.com/invalidandnull/ReadyFinch/releases/tag/v0.1.9";
+  "https://github.com/invalidandnull/RediFinch/releases/tag/v0.1.10";
 const installerUrl =
-  "https://github.com/invalidandnull/ReadyFinch/releases/download/v0.1.9/ReadyFinch-0.1.9-x64.exe";
+  "https://github.com/invalidandnull/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe";
 
 export default function DownloadPage() {
   return (
     <main className="download-page">
       <div className="download-shell">
         <a href="/" className="download-back">
-          <ArrowLeft size={17} /> Back to Ready Finch
+          <ArrowLeft size={17} /> Back to RediFinch
         </a>
         <div className="download-card">
           <div className="download-icon">
             <Download size={29} />
           </div>
-          <div className="section-kicker">WINDOWS PREVIEW · V0.1.9</div>
+          <div className="section-kicker">WINDOWS PREVIEW · V0.1.10</div>
           <h1>
             Bring your voice
             <br />
@@ -51,13 +51,13 @@ export default function DownloadPage() {
           </div>
           <div className="download-local">
             <span>LATEST WINDOWS BUILD</span>
-            <code>ReadyFinch-0.1.9-x64.exe</code>
+            <code>RediFinch-0.1.10-x64.exe</code>
             <small>
               Windows 10 / 11 · x64 · 120 MB
             </small>
           </div>
           <a className="button button-dark" href={installerUrl}>
-            Download Ready Finch for Windows <Download size={17} />
+            Download RediFinch for Windows <Download size={17} />
           </a>
         </div>
         <div className="download-foot">

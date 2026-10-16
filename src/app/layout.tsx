@@ -3,7 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Ready Finch',
+  title: 'RediFinch',
   description: 'Hold a key, speak, and your words are typed into whatever app has focus.',
 };
 

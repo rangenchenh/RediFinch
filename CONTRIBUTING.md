@@ -1,6 +1,6 @@
-# Contributing to Ready Finch
+# Contributing to RediFinch
 
-Thanks for helping improve Ready Finch. Bug reports, documentation fixes, and focused pull requests are welcome.
+Thanks for helping improve RediFinch. Bug reports, documentation fixes, and focused pull requests are welcome.
 
 ## Before you start
 

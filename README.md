@@ -1,55 +1,55 @@
-# Ready Finch
+# RediFinch
 
-**A voice agent for the apps you already use.** Hold a shortcut, speak naturally, and Ready Finch inserts the result into the focused Windows app. Dictate locally or choose a cloud speech provider; polish or translate the result when you need to.
+**Voice input for the apps you already use.** Hold a shortcut, speak, and insert text into the focused Windows app. RediFinch supports local or cloud dictation, AI polishing, translation, and an early voice agent for approved browser and computer actions.
 
-[Download for Windows](https://github.com/invalidandnull/ReadyFinch/releases/download/v0.1.9/ReadyFinch-0.1.9-x64.exe) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/ReadyFinch/issues)
+[Download for Windows](https://github.com/invalidandnull/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/RediFinch/issues)
 
-## Install
+## Get started
 
-Download `ReadyFinch-0.1.9-x64.exe` from the [v0.1.9 release](https://github.com/invalidandnull/ReadyFinch/releases/tag/v0.1.9) and run the installer. Ready Finch supports **Windows 10/11 on x64**. This preview build is not code signed.
+1. Download `RediFinch-0.1.10-x64.exe` from the [v0.1.10 release](https://github.com/invalidandnull/RediFinch/releases/tag/v0.1.10) and run it on **Windows 10 or 11 (x64)**. This preview installer is not code signed.
+2. In **Settings → Engine**, select **Local** and download the SenseVoice model, or select a cloud speech provider and enter your own API key.
+3. Focus a text field in another app. Hold `Ctrl+Win`, speak, then release to insert the transcript.
+4. To polish or translate what you say, configure a provider in **Settings → Output** and select an output mode. You can assign different push-to-talk shortcuts to different modes.
 
-On first launch, choose an on-device model or enter your own provider key in **Settings**. Local speech recognition downloads its model on demand; cloud recognition needs a key for the selected service.
+The local model downloads on first setup and can transcribe offline afterward. Cloud features need an internet connection and credentials for the provider you choose.
 
-## What it does
+## Features
 
 | Feature | Details |
 | --- | --- |
-| Dictation anywhere | Hold `Ctrl+Win` by default, speak, then release. Text goes into the app that had focus. A tray icon and recording overlay show the current state. |
-| Speech engines | Use local SenseVoice or connect OpenAI, Groq, SiliconFlow, Deepgram, ElevenLabs, AssemblyAI, Google Cloud STT, Azure Speech, or Speko Router. |
-| Output modes | Insert the raw transcript, polish it with an LLM, translate it with an LLM, or translate it through DeepL, Google, Azure, or a compatible endpoint. |
-| Provider and model selection | Choose from built-in provider and model menus, or supply a custom model ID and endpoint where supported. |
-| Mode shortcuts | Assign a separate push-to-talk shortcut to each output mode. |
-| Voice agent preview | Configure a separate agent model and tool permissions to inspect or operate an existing Chrome session, open URLs, and run approved local commands. |
+| Dictation | Insert text into the focused app with a hold-to-talk shortcut. A tray icon and recording overlay show the current state. |
+| Speech engines | Local SenseVoice; OpenAI, Groq, SiliconFlow, Deepgram, ElevenLabs, AssemblyAI, Google Cloud STT, Azure Speech, and Speko Router. |
+| Output modes | Raw transcript, LLM polishing, LLM translation, or translation through DeepL, Google, Azure, or a compatible endpoint. |
+| Provider setup | Built-in provider and model menus, with custom model IDs and endpoints where supported. |
+| Mode shortcuts | Configure a separate shortcut for each output mode. |
+| Voice agent preview | Use a separately configured agent model with selected Chrome and local command tools. See [Agent requirements and permissions](#agent-requirements-and-permissions). |
 
-The local speech engine can work without a network connection after its models are installed. Cloud speech, polish, translation, and agent features send the relevant audio or text to the provider you configure. Ready Finch does not bundle provider API keys.
+## Agent requirements and permissions
 
-## Quick start
+The **Agent** mode has its own model and tool settings under **Settings → Agent**. Browser tools connect to an existing **Google Chrome 144 or newer** session through Chrome DevTools MCP. Chrome must be running, Remote Debugging must be enabled in `chrome://inspect/#remote-debugging`, and Chrome may ask you to allow the connection.
 
-1. Open **Settings → Engine** and choose **Local** or a cloud provider.
-2. If using Local, download the model in the app. If using a cloud provider, enter its API key.
-3. Focus a text field in another app, hold `Ctrl+Win`, speak, then release.
-4. To polish or translate, choose an output mode and configure its provider under **Settings → Output**.
+Enable only the tools you want the agent to use. If **Local PowerShell** is enabled, the model can propose PowerShell commands to run on your computer; **each command requires your approval**. When browser or command tools are enabled, page snapshots and short command results can be sent to your configured Agent model provider. Agent runs have a bounded step count. This preview does not yet provide long-term memory or general desktop control.
 
-The **Agent** mode uses its own model configuration under **Settings → Agent**. Browser control connects to your running Chrome through Chrome DevTools MCP. Chrome Remote Debugging must be enabled in `chrome://inspect/#remote-debugging`, and Chrome may ask you to allow the connection. The agent's available browser and command tools are controlled separately in Settings. This is an early implementation with a bounded step count, not an unattended general-purpose assistant.
+## Data and security
+
+- The local speech engine can work offline after its model is installed. Cloud speech, polishing, translation, and agent features send relevant audio, text, or tool results to the provider you configure. RediFinch does not bundle provider API keys.
+- Provider keys are saved with other app settings in plain JSON at `%APPDATA%\RediFinch\settings.json`. Do not share this file or attach it to issue reports.
+- Windows cannot inject text from a normal process into an elevated app. Run RediFinch at the same privilege level as the app receiving text.
 
 ## Build from source
 
-### Requirements
-
-- Windows 10/11 x64
-- Node.js 22 or newer and npm
-- Git
+You need **Windows 10/11 x64**, **Node.js 22 or newer**, npm, and Git.
 
 ```powershell
-git clone https://github.com/invalidandnull/ReadyFinch.git
-cd ReadyFinch
+git clone https://github.com/invalidandnull/RediFinch.git
+cd RediFinch
 npm ci
 npm run dev
 ```
 
-`npm run dev` starts the Next.js renderer and Electron app. To build the renderer and main process, run `npm run build`. To make the Windows installer, run `npm run dist`; the output is written to `release/`.
+`npm run dev` starts the Next.js renderer and Electron app. `npm run build` builds the renderer and main process. `npm run dist` creates the Windows installer in `release/`.
 
-The website lives in `website/` and has its own dependencies and build:
+The marketing site is a separate project:
 
 ```powershell
 cd website
@@ -59,16 +59,21 @@ npm run build
 
 ## Verify a change
 
+Run the checks relevant to your change. The smoke test needs build artifacts, so build first on a fresh clone.
+
 ```powershell
 npm run typecheck
 npm run test:keys
 npm run test:output
 npm run test:models
 npm run test:agent
+npm run test:speko
+npm run test:groq
+npm run build
 npm run smoke
 ```
 
-The smoke test checks the native Windows input layer, hotkey helper, and packaged dependencies without opening a GUI.
+`npm run smoke` checks the build artifacts and native dependencies without opening the GUI. `npm run test:chrome` is an optional integration test: it requires a running Chrome session with Remote Debugging enabled, opens a local test tab, and closes it afterward.
 
 ## Project layout
 
@@ -83,15 +88,14 @@ website/        Standalone marketing site
 
 ## Known limitations
 
-- The native hotkey and text insertion layers are Windows specific.
+- Native hotkeys and text insertion are Windows specific.
 - Local SenseVoice transcription is segment based; Deepgram supports interim streaming results.
-- Windows blocks input injection from a normal process into an elevated app. Run Ready Finch at the same privilege level as the target app.
-- The voice agent currently operates an existing Chrome session and approved local commands. It does not yet have long-term memory or a general desktop control layer.
+- The voice agent works with an existing Chrome session and approved local commands. It is an early preview rather than an unattended general-purpose assistant.
 
-## Contributing
+## Help and contributing
 
-Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the development and review workflow.
+If something fails, [open an issue](https://github.com/invalidandnull/RediFinch/issues) with your Windows version, RediFinch version, steps to reproduce, and the provider or mode involved. Remove API keys and private content before sharing logs or screenshots. Focused issues and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-Ready Finch is released under the [MIT License](LICENSE). Third-party packages and model files retain their own licenses; see their upstream projects and [website/THIRD_PARTY_NOTICES.md](website/THIRD_PARTY_NOTICES.md) for the site's design references.
+RediFinch is released under the [MIT License](LICENSE). Third-party packages and model files retain their own licenses; see their upstream projects and [website/THIRD_PARTY_NOTICES.md](website/THIRD_PARTY_NOTICES.md) for the site's design references.

@@ -126,7 +126,7 @@ export async function injectText(
       ok: false,
       method: 'none',
       chars: 0,
-      error: 'Ready Finch is focused; switch to the app you want to dictate into',
+      error: 'RediFinch is focused; switch to the app you want to dictate into',
     };
   }
 

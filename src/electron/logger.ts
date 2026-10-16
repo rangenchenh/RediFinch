@@ -5,7 +5,7 @@ import path from 'node:path';
 /**
  * Minimal file logger. The app runs mostly in the tray with no console
  * attached, so anything that goes wrong has to land somewhere the user can
- * actually find — `%APPDATA%/Ready Finch/logs/readyfinch.log`.
+ * actually find — `%APPDATA%/RediFinch/logs/redifinch.log`.
  */
 
 const MAX_BYTES = 2 * 1024 * 1024;
@@ -18,13 +18,13 @@ function ensureStream(): fs.WriteStream | null {
   try {
     const dir = path.join(app.getPath('userData'), 'logs');
     fs.mkdirSync(dir, { recursive: true });
-    logPath = path.join(dir, 'readyfinch.log');
+    logPath = path.join(dir, 'redifinch.log');
 
     // Rotate once when the file gets large rather than growing without bound.
     try {
       const st = fs.statSync(logPath);
       if (st.size > MAX_BYTES) {
-        fs.renameSync(logPath, path.join(dir, 'readyfinch.prev.log'));
+        fs.renameSync(logPath, path.join(dir, 'redifinch.prev.log'));
       }
     } catch {
       /* first run */

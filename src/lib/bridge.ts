@@ -12,7 +12,7 @@ import type { IpcEventMap, IpcInvokeMap, Settings } from '@shared/types';
 export function getBridge() {
   const bridge = typeof window !== 'undefined' ? window.vibetype : undefined;
   if (!bridge) {
-    throw new Error('Ready Finch bridge unavailable — this UI must run inside the desktop app.');
+    throw new Error('RediFinch bridge unavailable — this UI must run inside the desktop app.');
   }
   return bridge;
 }

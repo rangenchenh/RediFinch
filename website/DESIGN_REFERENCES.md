@@ -1,11 +1,11 @@
-# Ready Finch landing page — visual direction
+# RediFinch landing page — visual direction
 
 The current design follows **Aqua's restrained visual system**. The [Aqua hero captured on Mobbin](https://mobbin.com/sites/sections/2f15b024-cf4d-435d-a596-c612c3bb1e82) is the primary reference: nearly white full-width canvas, one large sans-serif sentence, generous negative space, sparse navigation, and a compact blue action. We inspected the section image and the [current live Aqua page](https://aquavoice.com/) visually at desktop width. The live page uses one sans-serif family throughout; its computed body and heading styles use PP Neue Montreal with system sans fallbacks and normal font weight. The 2504 px viewport confirmed its canvas fills the browser while content uses intentional insets.
 
 Two secondary references inform individual sections:
 
-- [Aqua's text comparison](https://mobbin.com/sites/sections/d37b62ca-8a17-4499-97e0-862bd7a53b68) shows the benefit through words, rather than a product settings screenshot. Ready Finch uses one spoken-to-written example on a quiet white surface.
-- [Aqua's editorial feature grid](https://mobbin.com/sites/sections/81997816-d34c-41ef-9747-35119f13d2d9) uses spacious explanations. Ready Finch uses four ruled feature rows instead of tabs or cards.
+- [Aqua's text comparison](https://mobbin.com/sites/sections/d37b62ca-8a17-4499-97e0-862bd7a53b68) shows the benefit through words, rather than a product settings screenshot. RediFinch uses one spoken-to-written example on a quiet white surface.
+- [Aqua's editorial feature grid](https://mobbin.com/sites/sections/81997816-d34c-41ef-9747-35119f13d2d9) uses spacious explanations. RediFinch uses four ruled feature rows instead of tabs or cards.
 
 We also inspected [Wispr Flow's hero](https://mobbin.com/sites/sections/e0030809-614c-4bcb-9c53-746c90165df9) as a contrast: its concise CTA supports the direction, but its serif type, circular copy, and diagonal ribbons are excluded so the page has one coherent style.
 
