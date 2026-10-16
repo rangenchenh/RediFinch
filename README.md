@@ -1,8 +1,24 @@
-# RediFinch
+<a href="https://redifinch.com/"><img src=".github/assets/readme-cover.svg" alt="RediFinch — Your words, without the typing" width="100%" /></a>
 
-**Voice input for the apps you already use.** Hold a shortcut, speak, and insert text into the focused Windows app. RediFinch supports local or cloud dictation, AI polishing, translation, and an early voice agent for approved browser and computer actions.
+<p align="center">
+  <strong>Voice input for the apps you already use.</strong><br />
+  Hold a shortcut, speak naturally, and put clear text into the focused Windows app.
+</p>
 
-[Download for Windows](https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe) · [Website](https://redifinch.com/) · [Report an issue](https://github.com/rangenchenh/RediFinch/issues)
+<p align="center">
+  <a href="https://redifinch.com/">Website</a> ·
+  <a href="https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe">Download for Windows</a> ·
+  <a href="https://github.com/rangenchenh/RediFinch/releases">Releases</a> ·
+  <a href="https://github.com/rangenchenh/RediFinch/issues">Report an issue</a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/rangenchenh/RediFinch/releases"><img src="https://img.shields.io/github/v/release/rangenchenh/RediFinch?label=release&amp;color=458ff5" alt="Latest release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-458ff5" alt="MIT license" /></a>
+  <img src="https://img.shields.io/badge/platform-Windows%2010%2F11-458ff5" alt="Windows 10 and 11" />
+</p>
+
+RediFinch combines local or cloud dictation with AI polishing, translation, and an **early voice agent preview** for browser and computer actions you allow.
 
 ## Get started
 
@@ -13,7 +29,7 @@
 
 The local model downloads on first setup and can transcribe offline afterward. Cloud features need an internet connection and credentials for the provider you choose.
 
-## Features
+## What you can do
 
 | Feature | Details |
 | --- | --- |

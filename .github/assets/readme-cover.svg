@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">RediFinch — Your words, without the typing.</title>
+  <desc id="desc">A light blue RediFinch banner with a blue liquid form on the right.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#fcfdff"/>
+      <stop offset="1" stop-color="#f3f8ff"/>
+    </linearGradient>
+    <radialGradient id="halo">
+      <stop stop-color="#8abaff" stop-opacity=".48"/>
+      <stop offset=".54" stop-color="#b9d9ff" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#dcecff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="orb" x1=".13" x2=".88" y1=".1" y2=".97">
+      <stop stop-color="#eaf7ff"/>
+      <stop offset=".37" stop-color="#a8d2ff"/>
+      <stop offset=".76" stop-color="#4b8ef0"/>
+      <stop offset="1" stop-color="#bfdfff"/>
+    </linearGradient>
+    <radialGradient id="shine" cx=".28" cy=".19" r=".77">
+      <stop stop-color="#fff" stop-opacity=".9"/>
+      <stop offset=".39" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ribbon" x1=".05" x2=".91" y1=".12" y2=".94">
+      <stop stop-color="#f5fdff" stop-opacity=".78"/>
+      <stop offset=".45" stop-color="#80b7ff" stop-opacity=".4"/>
+      <stop offset=".8" stop-color="#1558c7" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#f1fbff" stop-opacity=".8"/>
+    </linearGradient>
+    <filter id="soft" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="orb-shadow" x="-45%" y="-45%" width="190%" height="190%">
+      <feDropShadow dx="0" dy="24" stdDeviation="26" flood-color="#4382d5" flood-opacity=".22"/>
+    </filter>
+    <clipPath id="orb-clip">
+      <circle cx="1321" cy="267" r="218"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1600" height="520" rx="30" fill="url(#background)"/>
+  <circle cx="1319" cy="258" r="340" fill="url(#halo)"/>
+  <g filter="url(#orb-shadow)">
+    <circle cx="1321" cy="267" r="218" fill="url(#orb)"/>
+    <g clip-path="url(#orb-clip)">
+      <path d="M1059 166c103-105 212-9 266 60 74 95 181 64 248-31v147c-83 126-193 98-257 22-78-93-149-95-257-19z" fill="url(#ribbon)" filter="url(#soft)"/>
+      <ellipse cx="1238" cy="160" rx="205" ry="172" fill="url(#shine)"/>
+      <path d="M1113 348c87-80 177-49 229 15 48 58 119 78 198 16" fill="none" stroke="#eaf8ff" stroke-opacity=".5" stroke-width="36" filter="url(#soft)"/>
+    </g>
+    <circle cx="1321" cy="267" r="214" fill="none" stroke="#fff" stroke-opacity=".62" stroke-width="2"/>
+    <circle cx="1321" cy="267" r="201" fill="none" stroke="#d3e9ff" stroke-opacity=".58" stroke-width="1"/>
+  </g>
+
+  <g fill="#17191d" font-family="Arial, Helvetica, sans-serif">
+    <rect x="86" y="65" width="47" height="47" rx="13" fill="#458ff5"/>
+    <path d="M97 89v-1m8 8V81m8 20V76m8 20V81m8 8v-1" fill="none" stroke="#fff" stroke-width="3.8" stroke-linecap="round"/>
+    <text x="148" y="102" font-size="40" font-weight="700" letter-spacing="-2">RediFinch<tspan fill="#458ff5">.</tspan></text>
+    <text x="84" y="241" font-size="84" letter-spacing="-5" font-weight="400">Your words,</text>
+    <text x="84" y="331" font-size="84" letter-spacing="-5" font-weight="400" fill="#555f6e">without the typing.</text>
+    <text x="88" y="391" font-size="25" fill="#657487">Voice dictation, translation, and a desktop assistant for Windows.</text>
+  </g>
+  <rect x="88" y="436" width="47" height="4" rx="2" fill="#458ff5"/>
+</svg>
