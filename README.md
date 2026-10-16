@@ -2,11 +2,11 @@
 
 **A voice agent for the apps you already use.** Hold a shortcut, speak naturally, and Ready Finch inserts the result into the focused Windows app. Dictate locally or choose a cloud speech provider; polish or translate the result when you need to.
 
-[Download for Windows](https://github.com/invalidandnull/ReadyFinch/releases/latest) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/ReadyFinch/issues)
+[Download for Windows](https://github.com/invalidandnull/ReadyFinch/releases/download/v0.1.9/ReadyFinch-0.1.9-x64.exe) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/invalidandnull/ReadyFinch/issues)
 
 ## Install
 
-Download `ReadyFinch-0.1.9-x64.exe` from [GitHub Releases](https://github.com/invalidandnull/ReadyFinch/releases/latest) and run the installer. Ready Finch supports **Windows 10/11 on x64**. This preview build is not code signed.
+Download `ReadyFinch-0.1.9-x64.exe` from the [v0.1.9 release](https://github.com/invalidandnull/ReadyFinch/releases/tag/v0.1.9) and run the installer. Ready Finch supports **Windows 10/11 on x64**. This preview build is not code signed.
 
 On first launch, choose an on-device model or enter your own provider key in **Settings**. Local speech recognition downloads its model on demand; cloud recognition needs a key for the selected service.
 
