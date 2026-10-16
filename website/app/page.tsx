@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Github } from "lucide-react";
 import LiquidOrb from "./liquid-orb";
 
 const questions = [
@@ -24,7 +24,12 @@ export default function Home() {
         <a href="#more-than-dictation">What it does</a>
         <a href="#questions">Questions</a>
       </nav>
-      <a className="header-cta" href="/download/">Get RediFinch <ArrowUpRight size={16}/></a>
+      <div className="header-actions">
+        <a className="header-github" href="https://github.com/rangenchenh/RediFinch" aria-label="RediFinch on GitHub" title="View RediFinch on GitHub" target="_blank" rel="noopener noreferrer">
+          <Github size={22} strokeWidth={1.8}/>
+        </a>
+        <a className="header-cta" href="/download/"><span className="header-cta-desktop">Get RediFinch</span><span className="header-cta-mobile">Download</span> <ArrowUpRight size={16}/></a>
+      </div>
     </header>
 
     <section className="hero" aria-labelledby="hero-title">

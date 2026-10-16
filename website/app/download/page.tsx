@@ -21,6 +21,7 @@ export const metadata = {
 
 const releaseUrl =
   "https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10";
+const repositoryUrl = "https://github.com/rangenchenh/RediFinch";
 const installerUrl =
   "https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe";
 
@@ -67,7 +68,7 @@ export default function DownloadPage() {
           </a>
         </div>
         <div className="download-foot">
-          <Check size={16} /> Open source on GitHub.
+          <Check size={16} /> <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">Open source on GitHub.</a>
           <a href={releaseUrl}>
             View release notes <ArrowRight size={14} />
           </a>
