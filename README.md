@@ -2,7 +2,7 @@
 
 **Voice input for the apps you already use.** Hold a shortcut, speak, and insert text into the focused Windows app. RediFinch supports local or cloud dictation, AI polishing, translation, and an early voice agent for approved browser and computer actions.
 
-[Download for Windows](https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe) · [Website](https://website-nu-henna-71.vercel.app/) · [Report an issue](https://github.com/rangenchenh/RediFinch/issues)
+[Download for Windows](https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe) · [Website](https://redifinch.com/) · [Report an issue](https://github.com/rangenchenh/RediFinch/issues)
 
 ## Get started
 

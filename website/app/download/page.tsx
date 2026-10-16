@@ -11,6 +11,12 @@ export const metadata = {
   title: "Windows preview — RediFinch",
   description:
     "Get the current Windows preview of RediFinch, the voice-first desktop app.",
+  alternates: {
+    canonical: "/download/",
+  },
+  openGraph: {
+    url: "https://redifinch.com/download/",
+  },
 };
 
 const releaseUrl =
