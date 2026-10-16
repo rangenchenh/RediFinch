@@ -126,7 +126,7 @@ export async function injectText(
       ok: false,
       method: 'none',
       chars: 0,
-      error: 'Saykin is focused; switch to the app you want to dictate into',
+      error: 'Vokluna is focused; switch to the app you want to dictate into',
     };
   }
 

@@ -66,7 +66,7 @@ function fetchTo(url, dest, redirectsLeft = 6) {
   return new Promise((resolve, reject) => {
     const req = https.get(
       url,
-      { headers: { 'user-agent': 'Saykin-model-fetch', accept: '*/*' } },
+      { headers: { 'user-agent': 'Vokluna-model-fetch', accept: '*/*' } },
       (res) => {
         const { statusCode = 0, headers } = res;
         if (statusCode >= 300 && statusCode < 400 && headers.location) {
@@ -196,7 +196,7 @@ async function main() {
     if (lastError) throw lastError;
   }
 
-  console.log('\nAll models ready. Launch Saykin and dictate offline.');
+  console.log('\nAll models ready. Launch Vokluna and dictate offline.');
 }
 
 main().catch((err) => {

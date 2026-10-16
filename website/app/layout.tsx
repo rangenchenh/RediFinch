@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Saykin — Your words, without the typing.",
+  title: "Vokluna — Your words, without the typing.",
   description:
     "Voice dictation, polished writing, translation, and a controllable desktop assistant for Windows. Choose the models and providers that work for you.",
   openGraph: {
-    title: "Saykin — Your words, without the typing.",
+    title: "Vokluna — Your words, without the typing.",
     description: "Your voice, everywhere you work.",
     type: "website",
   },

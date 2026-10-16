@@ -1,7 +1,7 @@
 {
-  "name": "saykin",
-  "productName": "Saykin",
-  "version": "0.1.7",
+  "name": "vokluna",
+  "productName": "Vokluna",
+  "version": "0.1.8",
   "private": true,
   "description": "Real-time voice-to-text dictation for Windows. Hold a hotkey, speak, and the text is typed into whatever app has focus.",
   "main": "dist-electron/main.js",

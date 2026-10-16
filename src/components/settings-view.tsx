@@ -132,7 +132,7 @@ export function SettingsView({ state }: Props) {
         <div className="px-7 pt-7">
           <div className="mx-auto mb-5 w-full max-w-[780px]">
             <h1 className="text-[22px] font-semibold tracking-[-0.04em]">Preferences</h1>
-            <p className="text-muted-foreground mt-1 text-xs">Set up how Saykin listens, processes, and inserts your words.</p>
+            <p className="text-muted-foreground mt-1 text-xs">Set up how Vokluna listens, processes, and inserts your words.</p>
           </div>
           <TabsList className="mx-auto flex h-10 w-full max-w-[780px] justify-start gap-5 rounded-none border-b border-[#e8e8e6] bg-transparent p-0 dark:border-white/10">
             <TabsTrigger value="output">

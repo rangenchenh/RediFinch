@@ -323,41 +323,43 @@ async function bootstrap(): Promise<void> {
       title: 'Limited functionality',
       message: 'Text insertion is unavailable',
       detail:
-        `Saykin could not load the Windows input APIs, so it cannot type into other apps.\n\n` +
+        `Vokluna could not load the Windows input APIs, so it cannot type into other apps.\n\n` +
         `Reason: ${win32InitError() ?? 'unknown'}\n\n` +
         `Transcription still works and text stays copyable.`,
     });
   }
 
   void pushStatus();
-  log.info('Saykin ready');
+  log.info('Vokluna ready');
 
   handleStartupArgs();
 }
 
 /** Carry existing settings and downloaded models across the product-name change. */
 function migrateLegacyUserData(): void {
-  const previous = path.join(app.getPath('appData'), 'vibeType');
   const current = app.getPath('userData');
-  if (path.resolve(previous).toLowerCase() === path.resolve(current).toLowerCase()) return;
-  if (!fs.existsSync(previous)) return;
+  for (const previousName of ['Saykin', 'vibeType']) {
+    const previous = path.join(app.getPath('appData'), previousName);
+    if (path.resolve(previous).toLowerCase() === path.resolve(current).toLowerCase()) continue;
+    if (!fs.existsSync(previous)) continue;
 
-  try {
-    fs.mkdirSync(current, { recursive: true });
-    for (const name of ['settings.json', 'agent-tasks.json']) {
-      const source = path.join(previous, name);
-      const destination = path.join(current, name);
-      if (fs.existsSync(source) && !fs.existsSync(destination)) {
-        fs.copyFileSync(source, destination);
+    try {
+      fs.mkdirSync(current, { recursive: true });
+      for (const name of ['settings.json', 'agent-tasks.json']) {
+        const source = path.join(previous, name);
+        const destination = path.join(current, name);
+        if (fs.existsSync(source) && !fs.existsSync(destination)) {
+          fs.copyFileSync(source, destination);
+        }
       }
+      const oldModels = path.join(previous, 'models');
+      const newModels = path.join(current, 'models');
+      if (fs.existsSync(oldModels) && !fs.existsSync(newModels)) {
+        fs.cpSync(oldModels, newModels, { recursive: true });
+      }
+    } catch (err) {
+      log.warn(`could not migrate settings from ${previousName}:`, err);
     }
-    const oldModels = path.join(previous, 'models');
-    const newModels = path.join(current, 'models');
-    if (fs.existsSync(oldModels) && !fs.existsSync(newModels)) {
-      fs.renameSync(oldModels, newModels);
-    }
-  } catch (err) {
-    log.warn('could not migrate settings from the previous app name:', err);
   }
 }
 
@@ -546,7 +548,7 @@ function buildTray(): void {
     tray.setContextMenu(
       Menu.buildFromTemplate([
         {
-          label: 'Open Saykin',
+          label: 'Open Vokluna',
           click: () => {
             mainWindow?.show();
             mainWindow?.focus();
@@ -637,7 +639,7 @@ function buildTray(): void {
   };
 
   refresh();
-  tray.setToolTip('Saykin — hold to dictate');
+  tray.setToolTip('Vokluna — hold to dictate');
   tray.on('click', () => {
     if (mainWindow?.isVisible()) mainWindow.hide();
     else {
@@ -870,7 +872,7 @@ app.whenReady().then(async () => {
   } catch (err) {
     log.error('bootstrap failed:', err);
     dialog.showErrorBox(
-      'Saykin failed to start',
+      'Vokluna failed to start',
       `${err instanceof Error ? err.message : String(err)}\n\nLogs: ${getLogPath()}`,
     );
   }

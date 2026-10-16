@@ -12,7 +12,7 @@ export function NotInApp() {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Terminal className="size-4" />
-            Open Saykin as an app
+            Open Vokluna as an app
           </CardTitle>
           <CardDescription>
             This page is the renderer, but the app runs in Electron — the microphone capture,

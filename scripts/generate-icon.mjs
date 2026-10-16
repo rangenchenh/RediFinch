@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates the Saykin app icon from code.
+ * Generates the Vokluna app icon from code.
  *
  * The mark is the same waveform the recording overlay draws — a centred group of
  * rounded bars — so the icon and the live indicator are visibly the same thing

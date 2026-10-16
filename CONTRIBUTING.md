@@ -1,6 +1,6 @@
-# Contributing to Saykin
+# Contributing to Vokluna
 
-Thanks for helping improve Saykin. Bug reports, documentation fixes, and focused pull requests are welcome.
+Thanks for helping improve Vokluna. Bug reports, documentation fixes, and focused pull requests are welcome.
 
 ## Before you start
 

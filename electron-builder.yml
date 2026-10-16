@@ -1,6 +1,6 @@
 appId: com.vibetype.app
-productName: Saykin
-copyright: Copyright © 2026 Saykin contributors
+productName: Vokluna
+copyright: Copyright © 2026 Vokluna contributors
 
 directories:
   output: release
@@ -44,7 +44,7 @@ nsis:
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: Saykin
+  shortcutName: Vokluna
   # Keeps the Add/Remove Programs entry and the uninstaller from showing the
   # generic Electron icon.
   installerIcon: build/icon.ico

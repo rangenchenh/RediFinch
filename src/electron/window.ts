@@ -78,7 +78,7 @@ export function createMainWindow(deps: WindowDeps, startHidden: boolean): Browse
     frame: false,
     show: false,
     backgroundColor: '#fbfbfa',
-    title: 'Saykin',
+    title: 'Vokluna',
     // Without this the taskbar and Alt-Tab show the stock Electron icon on
     // Windows, even when the executable itself has a proper icon resource.
     ...(deps.iconPath ? { icon: deps.iconPath } : {}),
