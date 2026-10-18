@@ -1,7 +1,7 @@
 {
   "name": "redifinch",
   "productName": "RediFinch",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "description": "Voice dictation, translation, and a browser-assisted desktop agent for Windows.",
   "main": "dist-electron/main.js",

@@ -27,7 +27,7 @@ import { preloadLocalEngine, shutdownLocalEngine } from './stt/local';
 import { listSpekoModels } from './stt/speko';
 import { SettingsStore } from './store';
 import { startStaticServer, type StaticServer } from './server';
-import { createMainWindow, createOverlayWindow } from './window';
+import { createMainWindow, createOverlayWindow, positionOverlayWindow } from './window';
 import { AgentRunner } from './agent/runner';
 import { ChromeTools } from './agent/chrome';
 
@@ -45,6 +45,8 @@ if (!app.requestSingleInstanceLock()) {
 
 let mainWindow: BrowserWindow | null = null;
 let overlayWindow: BrowserWindow | null = null;
+let overlayWatchdog: NodeJS.Timeout | null = null;
+let hotkeyStartPending = false;
 let tray: Tray | null = null;
 let server: StaticServer | null = null;
 
@@ -175,6 +177,7 @@ async function pushStatus(): Promise<void> {
 async function applySettings(patch: unknown): Promise<void> {
   const next = store.set(patch);
   store.flush();
+  syncOverlayVisibility();
   await hotkeys.register(configuredHotkeys(next));
   if (overlayWindow && !overlayWindow.isDestroyed()) {
     overlayWindow.setOpacity(next.ui.overlayOpacity);
@@ -184,25 +187,66 @@ async function applySettings(patch: unknown): Promise<void> {
   await pushStatus();
 }
 
-/** Show or hide the overlay window, creating it on demand. */
-async function setOverlayVisible(visible: boolean): Promise<void> {
-  if (!visible) {
-    overlayWindow?.hide();
+function ensureOverlayWindow(): BrowserWindow {
+  if (overlayWindow && !overlayWindow.isDestroyed()) {
+    if (!overlayWindow.webContents.isDestroyed() &&
+        !overlayWindow.webContents.isCrashed()) return overlayWindow;
+    overlayWindow.destroy();
+  }
+  const win = createOverlayWindow(
+    {
+      origin: server?.origin ?? DEV_ORIGIN,
+      isDev,
+      preloadPath: preloadPath(),
+      rendererRoot: rendererRoot(),
+      iconPath: windowIconPath(),
+    },
+    store.get().ui.overlayOpacity,
+  );
+  overlayWindow = win;
+  win.on('closed', () => {
+    if (overlayWindow !== win) return;
+    overlayWindow = null;
+    // A close while recording should never leave an invisible live session.
+    if (!(app as unknown as { isQuitting?: boolean }).isQuitting &&
+        session.currentState === 'listening') setImmediate(syncOverlayVisibility);
+  });
+  win.webContents.on('did-finish-load', () => {
+    if (overlayWindow === win) syncOverlayVisibility();
+  });
+  return win;
+}
+
+/** Keep the recording indicator tied to the real session, not a hotkey edge. */
+function syncOverlayVisibility(): void {
+  const active = session.currentState === 'listening' || session.currentState === 'processing';
+  if (!store.get().ui.showOverlay || !active) {
+    if (overlayWatchdog) clearInterval(overlayWatchdog);
+    overlayWatchdog = null;
+    try {
+      if (overlayWindow && !overlayWindow.isDestroyed()) overlayWindow.hide();
+    } catch (err) {
+      log.warn('could not hide recording overlay:', err);
+    }
     return;
   }
-  if (!overlayWindow || overlayWindow.isDestroyed()) {
-    overlayWindow = createOverlayWindow(
-      {
-        origin: server?.origin ?? DEV_ORIGIN,
-        isDev,
-        preloadPath: preloadPath(),
-        rendererRoot: rendererRoot(),
-        iconPath: windowIconPath(),
-      },
-      store.get().ui.overlayOpacity,
-    );
-  } else {
-    overlayWindow.showInactive();
+
+  // Windows can hide or discard a transparent window after a display change or
+  // renderer crash. Reconcile while the session is live, including after a
+  // window is recreated and its route has finished loading.
+  if (!overlayWatchdog) overlayWatchdog = setInterval(syncOverlayVisibility, 1000);
+  try {
+    const win = ensureOverlayWindow();
+    if (!win.isVisible()) {
+      positionOverlayWindow(win);
+      win.setAlwaysOnTop(true, 'screen-saver');
+      win.showInactive();
+      log.info('recording overlay shown');
+    }
+  } catch (err) {
+    // An indicator failure must never abort the microphone session. The
+    // watchdog retries when Electron has recovered.
+    log.warn('could not show recording overlay:', err);
   }
 }
 
@@ -214,7 +258,10 @@ async function bootstrap(): Promise<void> {
   const settings = store.get();
 
   session = new DictationSession(settings);
-  session.on('state', async () => pushStatus());
+  session.on('state', () => {
+    syncOverlayVisibility();
+    void pushStatus();
+  });
   session.on('segment', (segment) => emitToRenderers('dictation:segment', segment));
   session.on('output', (output) => emitToRenderers('dictation:output', output));
   session.on('level', (level) => emitToRenderers('dictation:level', level));
@@ -240,6 +287,7 @@ async function bootstrap(): Promise<void> {
   store.onChange(async (next) => {
     session.updateSettings(next);
     emitToRenderers('settings:changed', next);
+    syncOverlayVisibility();
     // Re-register only when the chord actually changed; `register` no-ops
     // otherwise, so this is cheap on unrelated settings edits.
     await hotkeys.register(configuredHotkeys(next));
@@ -287,7 +335,7 @@ async function bootstrap(): Promise<void> {
   });
 
   if (settings.ui.showOverlay) {
-    overlayWindow = createOverlayWindow(deps, settings.ui.overlayOpacity);
+    ensureOverlayWindow();
   }
 
   // Electron denies media permission by default, so without this the mic never
@@ -474,8 +522,16 @@ function onHotkeySwitch(id: string): void {
 
 async function onHotkeyDown(id = 'current'): Promise<void> {
   if (hotkeySuspended) return;
+  if (hotkeyStartPending) {
+    // A modifier chord can release and retrigger while the cloud engine is
+    // connecting. Keep one start in flight and treat the latest press as held.
+    if (id !== latchedHotkeyId) selectHotkeyMode(id);
+    hotkeyReleasePending = false;
+    return;
+  }
   try {
     if (session.currentState === 'listening') {
+      syncOverlayVisibility();
       if (id !== latchedHotkeyId) {
         selectHotkeyMode(id);
         return;
@@ -491,7 +547,7 @@ async function onHotkeyDown(id = 'current'): Promise<void> {
     latchedHotkeyId = id;
     hotkeyReleasePending = false;
     selectHotkeyMode(id);
-    overlayWindow?.showInactive();
+    hotkeyStartPending = true;
     await session.begin();
     emitToRenderers('hotkey:trigger', { edge: 'down' });
     if (hotkeyReleasePending) {
@@ -500,8 +556,10 @@ async function onHotkeyDown(id = 'current'): Promise<void> {
     }
     void pushStatus();
   } catch {
-    overlayWindow?.hide();
+    syncOverlayVisibility();
     // `session.begin` already surfaced a message to the UI.
+  } finally {
+    hotkeyStartPending = false;
   }
 }
 
@@ -523,7 +581,7 @@ async function finishHotkeySession(): Promise<void> {
   } finally {
     latchedHotkeyId = 'current';
     hotkeyReleasePending = false;
-    overlayWindow?.hide();
+    syncOverlayVisibility();
     void pushStatus();
   }
 }
@@ -602,9 +660,9 @@ function buildTray(): void {
         {
           label: 'Show overlay',
           type: 'checkbox',
-          checked: !!overlayWindow && !overlayWindow.isDestroyed() && overlayWindow.isVisible(),
+          checked: current.ui.showOverlay,
           click: (item) => {
-            void setOverlayVisible(item.checked);
+            void applySettings({ ui: { showOverlay: item.checked } });
           },
         },
         {
@@ -711,12 +769,11 @@ function registerIpc(): void {
 
   handle('dictation:start', async () => {
     try {
-      overlayWindow?.showInactive();
       await session.begin();
       await pushStatus();
       return { ok: true };
     } catch (err) {
-      overlayWindow?.hide();
+      syncOverlayVisibility();
       await pushStatus();
       return { ok: false, error: err instanceof Error ? err.message : String(err) };
     }
@@ -724,14 +781,14 @@ function registerIpc(): void {
 
   handle('dictation:stop', async (opts?: { inject?: boolean; process?: boolean }) => {
     const result = await session.end(opts);
-    overlayWindow?.hide();
+    syncOverlayVisibility();
     await pushStatus();
     return { ok: opts?.inject === false ? !result.error : result.injected, text: result.text, error: result.error };
   });
 
   handle('dictation:cancel', async () => {
     await session.cancel();
-    overlayWindow?.hide();
+    syncOverlayVisibility();
     await pushStatus();
     return { ok: true };
   });
@@ -793,25 +850,7 @@ function registerIpc(): void {
     mainWindow?.focus();
   });
   handle('window:setOverlay', async (enabled: boolean) => {
-    if (enabled) {
-      if (!overlayWindow || overlayWindow.isDestroyed()) {
-        overlayWindow = createOverlayWindow(
-          {
-            origin: server?.origin ?? DEV_ORIGIN,
-            isDev,
-            preloadPath: preloadPath(),
-            rendererRoot: rendererRoot(),
-            iconPath: windowIconPath(),
-          },
-          store.get().ui.overlayOpacity,
-        );
-      } else {
-        overlayWindow.showInactive();
-      }
-    } else {
-      overlayWindow?.hide();
-    }
-    await pushStatus();
+    await applySettings({ ui: { showOverlay: enabled } });
   });
   ipcMain.handle('hotkey:suspend', (event, suspended: boolean) => {
     const sender = event.sender;
@@ -856,6 +895,8 @@ app.on('window-all-closed', () => {
 
 app.on('before-quit', async () => {
   (app as unknown as { isQuitting?: boolean }).isQuitting = true;
+  if (overlayWatchdog) clearInterval(overlayWatchdog);
+  overlayWatchdog = null;
   store?.flush();
   await hotkeys?.dispose();
   await session?.cancel();

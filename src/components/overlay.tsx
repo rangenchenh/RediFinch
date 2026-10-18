@@ -99,11 +99,11 @@ export function Overlay() {
 
         const el = barsRef.current[i];
         if (el) {
-          const height = 3 + current.current[i] * 22;
+          const height = 7 + current.current[i] * 18;
           el.style.transform = `scaleY(${height / 25})`;
           // High floor on purpose: `opacity` fades the halo along with the bar,
           // so a low idle value would make white-on-white disappear entirely.
-          el.style.opacity = String(0.72 + current.current[i] * 0.28);
+          el.style.opacity = String(0.82 + current.current[i] * 0.18);
         }
       }
 
@@ -125,7 +125,6 @@ export function Overlay() {
     <div className="flex h-screen w-screen items-center justify-center bg-transparent">
       <div
         className="drag-region flex h-full w-full items-center justify-center gap-[3px] transition-opacity duration-150"
-        style={{ opacity: visible ? 1 : 0 }}
       >
         {Array.from({ length: BAR_COUNT }, (_, i) => (
           <span
@@ -135,7 +134,9 @@ export function Overlay() {
             }}
             className="h-[25px] w-[3px] origin-center rounded-full bg-white"
             style={{
-              transform: 'scaleY(0.12)',
+              // Main only shows this window for an active session. Keep a
+              // visible resting waveform even if an IPC status event is missed.
+              transform: 'scaleY(0.28)',
               // No backing panel, so the bars have to stay legible over whatever
               // is behind them. White is the worst case against a white document,
               // so the dark halo is doing the real work here: the tight shadows

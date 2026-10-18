@@ -26,18 +26,17 @@ export interface WindowDeps {
  * rectangle on my screen is eating my mouse".
  */
 export function createOverlayWindow(deps: WindowDeps, opacity: number): BrowserWindow {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
-
   const OVERLAY_WIDTH = 190;
   const OVERLAY_HEIGHT = 56;
+  const workArea = screen.getDisplayNearestPoint(screen.getCursorScreenPoint()).workArea;
 
   const win = new BrowserWindow({
     width: OVERLAY_WIDTH,
     height: OVERLAY_HEIGHT,
-    x: Math.round((width - OVERLAY_WIDTH) / 2),
+    x: Math.round(workArea.x + (workArea.width - OVERLAY_WIDTH) / 2),
     // Sits just above the taskbar, where a recording indicator is least likely to
     // cover the thing being dictated into.
-    y: Math.round(height - OVERLAY_HEIGHT - 80),
+    y: Math.round(workArea.y + workArea.height - OVERLAY_HEIGHT - 80),
     frame: false,
     transparent: true,
     resizable: false,
@@ -66,6 +65,16 @@ export function createOverlayWindow(deps: WindowDeps, opacity: number): BrowserW
 
   loadRoute(win, deps, '/overlay/');
   return win;
+}
+
+/** Move the indicator to the display the user is working on at record start. */
+export function positionOverlayWindow(win: BrowserWindow): void {
+  const workArea = screen.getDisplayNearestPoint(screen.getCursorScreenPoint()).workArea;
+  const [width, height] = win.getSize();
+  win.setPosition(
+    Math.round(workArea.x + (workArea.width - width) / 2),
+    Math.round(workArea.y + workArea.height - height - 80),
+  );
 }
 
 /** The main control window. */

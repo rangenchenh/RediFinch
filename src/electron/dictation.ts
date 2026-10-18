@@ -45,6 +45,7 @@ export class DictationSession extends EventEmitter {
   private segmentSeq = 0;
   private startedAt = 0;
   private busy = false;
+  private beginTask: Promise<void> | null = null;
 
   constructor(settings: Settings) {
     super();
@@ -80,9 +81,19 @@ export class DictationSession extends EventEmitter {
   }
 
   /** Resolve, construct and start an engine. Idempotent per session. */
-  async begin(): Promise<void> {
-    if (this.state === 'listening') return;
+  begin(): Promise<void> {
+    if (this.state === 'listening') return Promise.resolve();
+    if (this.beginTask) return this.beginTask;
 
+    const task = this.startSession();
+    this.beginTask = task;
+    void task.finally(() => {
+      if (this.beginTask === task) this.beginTask = null;
+    }).catch(() => undefined);
+    return task;
+  }
+
+  private async startSession(): Promise<void> {
     this.committed = [];
     this.interim = '';
     this.segmentSeq = 0;
