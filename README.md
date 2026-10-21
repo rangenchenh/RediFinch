@@ -9,13 +9,13 @@
 
 <p align="center">
   <a href="https://redifinch.com/">Website</a> ·
-  <a href="https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe">Download for Windows</a> ·
+  <a href="https://github.com/rangenchenh/RediFinch/releases/download/v0.1.11/RediFinch-0.1.11-x64.exe">Download for Windows</a> ·
   <a href="https://github.com/rangenchenh/RediFinch/releases">Releases</a> ·
   <a href="https://github.com/rangenchenh/RediFinch/issues">Report an issue</a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10"><img src="https://img.shields.io/badge/preview-v0.1.10-458ff5" alt="Preview v0.1.10" /></a>
+  <a href="https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.11"><img src="https://img.shields.io/badge/preview-v0.1.11-458ff5" alt="Preview v0.1.11" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-458ff5" alt="MIT license" /></a>
   <img src="https://img.shields.io/badge/platform-Windows%2010%2F11-458ff5" alt="Windows 10 and 11" />
 </p>
@@ -24,7 +24,7 @@ RediFinch combines local or cloud dictation with AI polishing, translation, and 
 
 ## Get started
 
-1. Download `RediFinch-0.1.10-x64.exe` from the [v0.1.10 release](https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10) and run it on **Windows 10 or 11 (x64)**. This preview installer is not code signed.
+1. Download `RediFinch-0.1.11-x64.exe` from the [v0.1.11 release](https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.11) and run it on **Windows 10 or 11 (x64)**. This preview installer is not code signed.
 2. In **Settings → Engine**, select **Local** and download the SenseVoice model, or select a cloud speech provider and enter your own API key.
 3. Focus a text field in another app. Hold `Ctrl+Win`, speak, then release to insert the transcript.
 4. To polish or translate what you say, configure a provider in **Settings → Output** and select an output mode. You can assign different push-to-talk shortcuts to different modes.

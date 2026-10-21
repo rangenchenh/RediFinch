@@ -16,7 +16,7 @@ Open http://localhost:3010.
 
 `npm run build` exports static files to `out/`. This can be deployed to either Vercel or Cloudflare Pages without a server runtime. For Vercel, set root directory to `website`, build command to `npm run build`, and output directory to `out`. For Cloudflare Pages, use the same root, build command, and output directory.
 
-The desktop installer is distributed through [GitHub Releases](https://github.com/rangenchenh/RediFinch/releases). The download page links directly to the [v0.1.10 Windows installer](https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe), while release notes remain available on the [v0.1.10 release page](https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10). The site does not bundle the binary into the repository or export.
+The desktop installer is distributed through [GitHub Releases](https://github.com/rangenchenh/RediFinch/releases). The download page links directly to the [v0.1.11 Windows installer](https://github.com/rangenchenh/RediFinch/releases/download/v0.1.11/RediFinch-0.1.11-x64.exe), while release notes remain available on the [v0.1.11 release page](https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.11). The site does not bundle the binary into the repository or export.
 
 ## Design references
 

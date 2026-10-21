@@ -15,10 +15,10 @@ export const metadata = pageMetadata(
 );
 
 const releaseUrl =
-  "https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.10";
+  "https://github.com/rangenchenh/RediFinch/releases/tag/v0.1.11";
 const repositoryUrl = "https://github.com/rangenchenh/RediFinch";
 const installerUrl =
-  "https://github.com/rangenchenh/RediFinch/releases/download/v0.1.10/RediFinch-0.1.10-x64.exe";
+  "https://github.com/rangenchenh/RediFinch/releases/download/v0.1.11/RediFinch-0.1.11-x64.exe";
 
 export default function DownloadPage() {
   return (
@@ -31,7 +31,7 @@ export default function DownloadPage() {
           <div className="download-icon">
             <Download size={29} />
           </div>
-          <div className="section-kicker">WINDOWS PREVIEW · V0.1.10</div>
+          <div className="section-kicker">WINDOWS PREVIEW · V0.1.11</div>
           <h1>
             Bring your voice
             <br />
@@ -53,7 +53,7 @@ export default function DownloadPage() {
           </div>
           <div className="download-local">
             <span>LATEST WINDOWS BUILD</span>
-            <code>RediFinch-0.1.10-x64.exe</code>
+            <code>RediFinch-0.1.11-x64.exe</code>
             <small>
               Windows 10 / 11 · x64 · 120 MB
             </small>
