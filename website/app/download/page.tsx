@@ -19,6 +19,8 @@ const releaseUrl =
 const repositoryUrl = "https://github.com/rangenchenh/RediFinch";
 const installerUrl =
   "https://github.com/rangenchenh/RediFinch/releases/download/v0.1.11/RediFinch-0.1.11-x64.exe";
+const unpackedUrl =
+  "https://github.com/rangenchenh/RediFinch/releases/download/v0.1.11/RediFinch-0.1.11-win-unpacked.zip";
 
 export default function DownloadPage() {
   return (
@@ -55,7 +57,7 @@ export default function DownloadPage() {
             <span>LATEST WINDOWS BUILD</span>
             <code>RediFinch-0.1.11-x64.exe</code>
             <small>
-              Windows 10 / 11 · x64 · 120 MB
+              Windows 10 / 11 · x64 · 120 MB · <a href={unpackedUrl}>Get the unpacked ZIP</a>
             </small>
           </div>
           <a className="button button-dark" href={installerUrl}>
